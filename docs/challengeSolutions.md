@@ -100,7 +100,7 @@ The above challenge was completed using Burp Suite Community Edition.
 1. Login to the application from http://localhost:8888/login.
 2. After adding a vehicle, we will have an option to send service request to mechanic by using the *Contact Mechanic* option.
 3. Observe the request sent after the *Send Service Request*. In the request of `/workshop/api/merchant/contact_mechanic`, we will see `mechanic_api`.
-4. We update this to `mechanic_api":"http://localhost:8888/workshop/api/mechanic/receive_report"` and send the request.
+4. We update this to `"mechanic_api":"http://localhost:8888/workshop/api/mechanic/receive_report"` and send the request.
 5. In the response we get the content of the Google homepage and the HTTP response code. 
 
 ## NoSQL Injection
