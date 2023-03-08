@@ -44,6 +44,12 @@ The above challenge was completed using Burp Suite Community Edition.
 
 ### Challenge 4 - Find an API endpoint that leaks sensitive information of other users
 
+#### Detailed solution
+
+1. Login to the application from http://localhost:8888/login.
+2. Click *Community* in the navbar to visit http://localhost:8888/forum.
+3. In the response of `/community/api/v2/community/posts/recent` we see sensitive information of other users.
+
 ### Challenge 5 - Find an API endpoint that leaks an internal property of a video
 
 ## Rate Limiting
@@ -89,6 +95,13 @@ The above challenge was completed using Burp Suite Community Edition.
 ## SSRF
 
 ### Challenge 11 - Make crAPI send an HTTP call to https://www.google.com and return the HTTP response. 
+
+#### Detailed solution
+1. Login to the application from http://localhost:8888/login.
+2. After adding a vehicle, we will have an option to send service request to mechanic by using the *Contact Mechanic* option.
+3. Observe the request sent after the *Send Service Request*. In the request of `/workshop/api/merchant/contact_mechanic`, we will see `mechanic_api`.
+4. We update this to `mechanic_api":"http://localhost:8888/workshop/api/mechanic/receive_report"` and send the request.
+5. In the response we get the content of the Google homepage and the HTTP response code. 
 
 ## NoSQL Injection
 
